@@ -1,0 +1,65 @@
+@startuml
+
+skinparam linetype ortho
+
+class Prenda {
+    Tipo tipo
+    Categoria categoria
+    String material
+    Color colorPrimario
+    Color colorSecundario
+}
+
+class Tipo {
+    String alias
+    Categoria categoria
+}
+
+class Atuendo {
+    Prenda parteSuperior
+    Prenda parteInferior
+    Prenda calzado
+    Prenda accesorios
+}
+
+class Color {
+    Long codigo
+    String alias
+}
+
+class PrendaBuilder {
+    Prenda prenda
+    build()
+    withTipo(Tipo)
+    withCategoria(Categoria)
+    withMaterial(String)
+    withColorPrimario(Color)
+    withColorSecundario(Color)
+}
+
+class Usuario {
+  Integer dni
+  String nombre
+  List<Atuendo> atuendos
+  addAtuendo(Atuendo)
+}
+
+enum Categoria {
+    PARTE_SUPERIOR
+    PARTE_INFERIOR
+    CALZADO
+    ACCESORIOS
+}
+
+Usuario -->"*" Atuendo
+Atuendo --> Prenda
+Prenda --> Tipo
+Prenda --> Categoria
+Prenda --> Color
+Tipo --> Categoria
+PrendaBuilder -up-> Prenda
+PrendaBuilder -up.> Tipo
+PrendaBuilder -up.> Categoria
+PrendaBuilder -up.> Color
+
+@enduml
