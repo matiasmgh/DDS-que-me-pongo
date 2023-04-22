@@ -1,0 +1,58 @@
+@startuml
+
+skinparam linetype ortho
+
+class Prenda {
+    Tipo tipo
+    Categoria categoria
+    Material material
+    Color colorPrimario
+    Color colorSecundario
+}
+
+class Material {
+    String tipo
+    Trama trama
+}
+
+enum Trama {
+    LISO
+    RAYADO
+    LUNARES
+    CUADROS
+    ESTAMPADO
+}
+
+class Tipo {
+    String alias
+    Categoria categoria
+}
+
+class Atuendo {
+    Prenda parteSuperior
+    Prenda parteInferior
+    Prenda calzado
+    Prenda accesorios
+}
+
+class Color {
+    Integer rojo
+    Integer azul
+    Integer verde
+}
+
+enum Categoria {
+    PARTE_SUPERIOR
+    PARTE_INFERIOR
+    CALZADO
+    ACCESORIOS
+}
+
+Atuendo --> Prenda
+Prenda --> Tipo
+Prenda --> Material
+Prenda --> Categoria
+Prenda --> Color
+Material --> Trama
+Tipo --> Categoria
+@enduml
