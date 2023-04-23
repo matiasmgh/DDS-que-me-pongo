@@ -1,20 +1,17 @@
-package prenda;
+package prenda.componentes;
 
 /**
  * Clase para representar los tipos de prendas.
  */
 public class Tipo {
-  String alias;
-  Categoria categoria;
+  private final Categoria categoria;
 
   /**
    * Constructor completo.
    *
-   * @param alias el alias del tipo.
    * @param categoria la categoria a la que pertenece el tipo.
    */
-  public Tipo(String alias, Categoria categoria) {
-    this.alias = alias;
+  public Tipo(Categoria categoria) {
     this.categoria = categoria;
   }
 

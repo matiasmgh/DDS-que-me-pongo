@@ -9,7 +9,6 @@ class Prenda {
 }
 
 class Borrador {
-    Prenda prenda
     Tipo tipo
     Material material
     Color colorPrimario
@@ -17,7 +16,6 @@ class Borrador {
     Trama trama
 
     crearPrenda()
-    seleccionarTipo(Tipo)
     seleccionarMaterial(Material)
     seleccionarColorPrimario(Color)
     seleccionarColorSecundario(Color)
@@ -25,7 +23,7 @@ class Borrador {
 }
 
 class Material {
-    Tela tipo
+    TipoMaterial tipo
 }
 
 enum Trama {
@@ -36,9 +34,11 @@ enum Trama {
     ESTAMPADO
 }
 
-enum Tela {
+enum TipoMaterial {
     LANA
     ALGODON
+    PIQUE
+    ACETATO
 }
 class Tipo {
     Categoria categoria
@@ -86,13 +86,14 @@ class AtuendoInstitutoJohnsonFactory {
 
 
 Atuendo --> Prenda
-Borrador --> Prenda
+Borrador -.> Prenda
 Prenda --> Tipo
 Prenda --> Material
 Prenda --> Color
 Prenda --> Trama
-Material --> Tela
+Material --> TipoMaterial
 Tipo --> Categoria
+Categoria --left>"*" TipoMaterial
 AtuendoSanJuanFactory -up-|> AtuendoFactory
 AtuendoInstitutoJohnsonFactory -up-|> AtuendoFactory
 AtuendoFactory --.> Atuendo
