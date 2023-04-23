@@ -1,18 +1,31 @@
 @startuml
 
-skinparam linetype ortho
-
 class Prenda {
     Tipo tipo
-    Categoria categoria
     Material material
     Color colorPrimario
     Color colorSecundario
+    Trama trama
+}
+
+class Borrador {
+    Prenda prenda
+    Tipo tipo
+    Material material
+    Color colorPrimario
+    Color colorSecundario
+    Trama trama
+
+    crearPrenda()
+    seleccionarTipo(Tipo)
+    seleccionarMaterial(Material)
+    seleccionarColorPrimario(Color)
+    seleccionarColorSecundario(Color)
+    seleccionarTrama(Trama)
 }
 
 class Material {
-    String tipo
-    Trama trama
+    Tela tipo
 }
 
 enum Trama {
@@ -23,8 +36,11 @@ enum Trama {
     ESTAMPADO
 }
 
+enum Tela {
+    LANA
+    ALGODON
+}
 class Tipo {
-    String alias
     Categoria categoria
 }
 
@@ -48,11 +64,39 @@ enum Categoria {
     ACCESORIOS
 }
 
+abstract class AtuendoFactory {
+    method fabricarAtuendo()
+    //method fabricarParteSuperior()//
+    //method fabricarParteInferior()//
+    //method fabricarCalzado()//
+}
+
+class AtuendoSanJuanFactory {
+    //method fabricarParteSuperior()//
+    //method fabricarParteInferior()//
+    //method fabricarCalzado()//
+}
+
+class AtuendoInstitutoJohnsonFactory {
+    //method fabricarParteSuperior()//
+    //method fabricarParteInferior()//
+    //method fabricarCalzado()//
+}
+
+
+
 Atuendo --> Prenda
+Borrador --> Prenda
 Prenda --> Tipo
 Prenda --> Material
-Prenda --> Categoria
 Prenda --> Color
-Material --> Trama
+Prenda --> Trama
+Material --> Tela
 Tipo --> Categoria
+AtuendoSanJuanFactory -up-|> AtuendoFactory
+AtuendoInstitutoJohnsonFactory -up-|> AtuendoFactory
+AtuendoFactory --.> Atuendo
+AtuendoSanJuanFactory -.> Borrador
+AtuendoInstitutoJohnsonFactory -.> Borrador
+
 @enduml
