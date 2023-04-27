@@ -17,4 +17,13 @@ public enum Categoria {
   Categoria(List<TipoMaterial> tipoMateriales) {
     this.tipoMateriales = tipoMateriales;
   }
+
+  /**
+   * Obtiene los tipos de materiales.
+   *
+   * @return los tipos de materiales asociados al enum.
+   */
+  public List<TipoMaterial> getTipoMateriales() {
+    return this.tipoMateriales;
+  }
 }

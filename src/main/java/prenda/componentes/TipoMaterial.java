@@ -28,4 +28,8 @@ public enum TipoMaterial {
   public static List<TipoMaterial> telasAccesorios() {
     return List.of(TipoMaterial.values());
   }
+
+  public Boolean isValidForCategoria(Categoria categoria) {
+    return categoria.getTipoMateriales().contains(this);
+  }
 }

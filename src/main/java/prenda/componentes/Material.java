@@ -11,4 +11,14 @@ public class Material {
   public Material(TipoMaterial tipoMaterial) {
     this.tipoMaterial = tipoMaterial;
   }
+
+  /**
+   * Obtiene el tipo de material.
+   *
+   * @return el tipo de material.
+   */
+  public TipoMaterial getTipoMaterial() {
+    return tipoMaterial;
+  }
+
 }

@@ -2,6 +2,7 @@ package usuario;
 
 import java.util.ArrayList;
 import java.util.List;
+import usuario.atuendo.Atuendo;
 
 public class Usuario {
 

@@ -36,7 +36,7 @@ public class Borrador {
   }
 
   public Borrador seleccionarMaterial(Material material) throws IncorrectMaterialPrendaException {
-    if(Objects.nonNull(material) && this.materialIsValid()) {
+    if(Objects.nonNull(material) && this.materialIsValid(material)) {
       this.material = material;
     } else {
       throw new IncorrectMaterialPrendaException();
@@ -67,7 +67,7 @@ public class Borrador {
     return this;
   }
 
-  private Boolean materialIsValid() {
-    return null;
+  private Boolean materialIsValid(Material material) {
+    return material.getTipoMaterial().isValidForCategoria(this.tipo.getCategoria());
   }
 }
