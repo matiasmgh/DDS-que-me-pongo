@@ -6,9 +6,8 @@ import prenda.Borrador;
 import prenda.Prenda;
 import prenda.componentes.Categoria;
 import prenda.componentes.Color;
-import prenda.componentes.Material;
 import prenda.componentes.Tipo;
-import prenda.componentes.TipoMaterial;
+import prenda.componentes.Material;
 
 public class AtuendoJohnsonFactory extends AtuendoFactory {
 
@@ -19,7 +18,7 @@ public class AtuendoJohnsonFactory extends AtuendoFactory {
     Color colorBlanco = new Color(255, 255, 255);
 
     Borrador borradorPrenda = new Borrador(tipo);
-    borradorPrenda.seleccionarMaterial(new Material(TipoMaterial.PIQUE));
+    borradorPrenda.seleccionarMaterial(Material.PIQUE);
     borradorPrenda.seleccionarColorPrimario(colorBlanco);
     return borradorPrenda.buildPrenda();
   }
@@ -31,7 +30,7 @@ public class AtuendoJohnsonFactory extends AtuendoFactory {
     Color colorNegro = new Color(0, 0, 0);
 
     Borrador borradorPrenda = new Borrador(tipo);
-    borradorPrenda.seleccionarMaterial(new Material(TipoMaterial.ACETATO));
+    borradorPrenda.seleccionarMaterial(Material.ACETATO);
     borradorPrenda.seleccionarColorPrimario(colorNegro);
     return borradorPrenda.buildPrenda();
   }
@@ -43,7 +42,7 @@ public class AtuendoJohnsonFactory extends AtuendoFactory {
     Color colorNegro = new Color(0, 0, 0);
 
     Borrador borradorPrenda = new Borrador(tipo);
-    borradorPrenda.seleccionarMaterial(new Material(TipoMaterial.CUERO));
+    borradorPrenda.seleccionarMaterial(Material.CUERO);
     borradorPrenda.seleccionarColorPrimario(colorNegro);
     return borradorPrenda.buildPrenda();
   }

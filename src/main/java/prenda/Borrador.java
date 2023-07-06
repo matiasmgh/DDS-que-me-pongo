@@ -1,6 +1,7 @@
 package prenda;
 
 import exception.IncorrectColorPrimarioPrendaException;
+import exception.IncorrectFormalidadException;
 import exception.IncorrectMaterialPrendaException;
 import prenda.componentes.Color;
 import prenda.componentes.Material;
@@ -16,6 +17,7 @@ public class Borrador {
   private Color colorPrimario;
   private Color colorSecundario;
   private Trama trama;
+  private Formalidad formalidad;
 
   /**
    * Constructor para el tipo unicamente.
@@ -32,7 +34,8 @@ public class Borrador {
    * @return una prenda.
    */
   public Prenda buildPrenda() {
-    return new Prenda(this.tipo, this.trama, this.material, this.colorPrimario, this.colorSecundario);
+    return new Prenda(this.tipo, this.material, this.colorPrimario, this.colorSecundario,
+        formalidad, this.trama);
   }
 
   public Borrador seleccionarMaterial(Material material) throws IncorrectMaterialPrendaException {
@@ -67,7 +70,17 @@ public class Borrador {
     return this;
   }
 
+  public Borrador seleccionarFormalidad(Formalidad formalidad)
+      throws IncorrectFormalidadException {
+    if (Objects.nonNull(formalidad)) {
+      this.formalidad = formalidad;
+    } else {
+      throw new IncorrectFormalidadException();
+    }
+    return this;
+  }
+
   private Boolean materialIsValid(Material material) {
-    return material.getTipoMaterial().isValidForCategoria(this.tipo.getCategoria());
+    return material.isValidForCategoria(this.tipo.getCategoria());
   }
 }

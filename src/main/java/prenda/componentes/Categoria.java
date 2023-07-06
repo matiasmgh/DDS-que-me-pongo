@@ -7,14 +7,14 @@ import java.util.List;
  */
 public enum Categoria {
 
-  PARTE_SUPERIOR(TipoMaterial.telasParteSuperior()),
-  PARTE_INFERIOR(TipoMaterial.telasParteInferior()),
+  PARTE_SUPERIOR(Material.telasParteSuperior()),
+  PARTE_INFERIOR(Material.telasParteInferior()),
 
-  CALZADO(TipoMaterial.telasCalzado()),
-  ACCESORIOS(TipoMaterial.telasAccesorios());
-  private final List<TipoMaterial> tipoMateriales;
+  CALZADO(Material.telasCalzado()),
+  ACCESORIOS(Material.telasAccesorios());
+  private final List<Material> tipoMateriales;
 
-  Categoria(List<TipoMaterial> tipoMateriales) {
+  Categoria(List<Material> tipoMateriales) {
     this.tipoMateriales = tipoMateriales;
   }
 
@@ -23,7 +23,7 @@ public enum Categoria {
    *
    * @return los tipos de materiales asociados al enum.
    */
-  public List<TipoMaterial> getTipoMateriales() {
+  public List<Material> getTipoMateriales() {
     return this.tipoMateriales;
   }
 }
