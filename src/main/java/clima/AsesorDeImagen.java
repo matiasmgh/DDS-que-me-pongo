@@ -1,8 +1,8 @@
 package clima;
 
 import clima.serviciometeorologico.ServicioMeteorologicoAccuWeather;
-import prenda.Atuendo;
-import prenda.Guardarropas;
+import usuario.atuendo.Atuendo;
+import usuario.guardarropas.Guardarropas;
 
 import java.util.List;
 

@@ -2,10 +2,11 @@ package usuario;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import usuario.guardarropas.Guardarropas;
 import prenda.Prenda;
 import sugerencia.MotorSugerencias;
 import sugerencia.Sugerencia;
-import usuario.atuendo.Atuendo;
 
 public class Usuario {
 
@@ -16,6 +17,8 @@ public class Usuario {
 
   private final MotorSugerencias motorSugerencias;
   private final List<Prenda> prendas = new ArrayList<>();
+
+  private final List<Guardarropas> guardarropas = new ArrayList<>();
 
   public Usuario(Integer dni, String nombre, Integer edad,
                  MotorSugerencias motorSugerencias) {
@@ -76,5 +79,13 @@ public class Usuario {
    */
   public List<Prenda> getPrendas() {
     return prendas;
+  }
+
+  public void agregarGuardarropas(Guardarropas guardarropas) {
+    this.guardarropas.add(guardarropas);
+  }
+
+  public void quitarGuardarropas(Guardarropas guardarropas) {
+    this.guardarropas.remove(guardarropas);
   }
 }

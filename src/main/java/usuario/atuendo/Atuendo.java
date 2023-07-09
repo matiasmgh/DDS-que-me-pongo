@@ -1,5 +1,6 @@
 package usuario.atuendo;
 
+import clima.Humedad;
 import prenda.Prenda;
 
 public class Atuendo {
@@ -36,5 +37,14 @@ public class Atuendo {
 
   public Prenda getAccesorio() {
     return accesorio;
+  }
+
+
+  public boolean aptaParaHumedad(Humedad humedad) {
+    return true;
+  }
+
+  public boolean aptaParaTemperatura(int temperatura) {
+    return true;
   }
 }
